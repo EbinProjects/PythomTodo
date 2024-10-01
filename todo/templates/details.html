@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+     <div class="product-card">
+            <p><strong>Task Name:</strong> {{ i.name }}</p>
+            <p>
+            <p><strong>Task Date:</strong> {{ i.datefield }}</p>
+            <p>
+                <strong>Priority:</strong>
+                {% if i.priority == 1 %}
+                Low
+                {% elif i.priority == 2 %}
+                Medium
+                {% else %}
+                High
+                {% endif %}
+            </p>
+            <div class="action-buttons">
+                <a class="update-btn" href="{% url 'Update' i.id %}">Update</a>
+                <a class="delete-btn" href="{% url 'Delete' i.id %}">Delete</a>
+            </div>
+        </div>
+</div>
+
+
+{% endblock %}

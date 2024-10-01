@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="product-card"
+         style="width: 50%; margin: 0 auto;margin-top:10px;  justify-content: center; align-items: center;">
+        <h2 class="text-center">Task Form Update</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                <label>{{ f.name.label }}:</label><br>
+                {{ f.name }}
+                <span class="text-danger">{{ f.name.errors }}</span>
+            </div>
+            <div>
+                <label>{{ f.datefield.label }}:</label><br>
+                {{ f.datefield }}
+                <span class="text-danger">{{ f.datefield.errors }}</span>
+            </div>
+            <div>
+                <label>{{ f.priority.label }}:</label><br>
+                <select id="priority" name="priority" required>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select><br><br>
+
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Update Task">
+            </div>
+            <script>
+                document.getElementById("priority").value = "{{ f.priority.value}}";
+            </script>
+            <!--    {{f.as_p}}-->
+        </form>
+
+
+    </div>
+</div>
+{% endblock %}

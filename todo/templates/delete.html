@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="product-card"
+     style="width: 50%; margin: 0 auto;margin-top:10px;  justify-content: center; align-items: center;">
+    <h2 class="text-center">Task Delete</h2>
+    <form method=post>
+        {% csrf_token %}
+
+        <div class="text-center">
+                <h6>Are you sure to delete it?</h6>
+            <input type="submit" value="Submit Task">
+        </div>
+    </form>
+</div>
+{% endblock %}
